@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+  --primary: #79addc;
+  --primary-clear: #79aedc46;
+  --secondary: #40444d;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  scroll-behavior: smooth;
+}
+
+.layout {
+  @apply max-w-[1200px] px-6 box-border mx-auto;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.664);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.596);
+  z-index: 11;
+}
+
+.rectangle img {
+  width: 54%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -8%;
+}
+
+.spark img {
+  width: 24%;
+  height: 100%;
+  position: absolute;
+  top: 21px;
+  bottom: 0;
+  left: 14%;
+}
+
+.strips img {
+  width: 118px;
+  height: 100%;
+  position: absolute;
+  top: 15%;
+  bottom: 0;
+  left: 0%;
+  z-index: 1;
+}
+
+.hamburger {
+  @apply z-10 mr-[-13px];
+}
+
+.hamburger .ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hamburger .ham .line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #fff;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.hamburger .hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.hamburger .hamRotate180.active {
+  transform: rotate(180deg);
+}
+
+.hamburger .ham8 .middle {
+  stroke-dasharray: 40 142;
+  transform-origin: 50%;
+  transition: transform 400ms;
+}
+
+.hamburger .ham8 .bottom {
+  stroke-dasharray: 40 85;
+  transform-origin: 50%;
+  transition: transform 400ms, stroke-dashoffset 400ms;
+}
+
+.hamburger .ham8 .top {
+  stroke-dasharray: 40 160;
+}
+
+.hamburger .ham8.active .top {
+  stroke-dashoffset: -64px;
+}
+
+.hamburger .ham8.active .middle {
+  transform: rotate(90deg);
+}
+
+.hamburger .ham8.active .bottom {
+  stroke-dashoffset: -64px;
+}
+
+.box_image {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  min-height: 678px;
+}
+
+.box_image .lansiaImg1 {
+  box-sizing: content-box;
+  position: absolute;
+  width: 440px;
+  height: 450px;
+  top: 0;
+  left: 0;
+  border: 14px solid var(--primary-clear);
+}
+
+.box_image .lansiaImg2 {
+  position: absolute;
+  width: 330px;
+  height: 348px;
+  bottom: 0;
+  right: 0;
+  border: 14px solid var(--primary-clear);
+}
+
+.box_image .visionImage {
+  position: absolute;
+  width: 100%;
+  max-width: 445.51px;
+  height: 460.24px;
+  top: 0;
+  left: 0;
+  border: 14px solid var(--primary-clear);
+}
+
+.box_image .vision {
+  position: absolute;
+  width: 100%;
+  max-width: 340.25px;
+  height: 310.09px;
+  bottom: 0;
+  right: 0;
+  border: 14px solid var(--primary-clear);
+}
+
+.box_image.getInvolvedBox {
+  width: 100%;
+  max-width: 800px;
+  min-height: auto;
+}
+
+.flip {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.flip > .front,
+.flip > .back {
+  display: block;
+  color: white;
+  width: inherit;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background: var(--primary);
+}
+
+.flip > .front {
+  height: 360px;
+  outline: 14px solid var(--primary-clear);
+  /* border: 14px solid var(--primary-clear); */
+}
+
+.flip > .front,
+.flip > .back {
+  display: block;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+}
+
+.flip > .front {
+  transform: rotateY(0deg);
+}
+
+.flip > .back {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-180deg);
+}
+
+.flip:hover > .front {
+  transform: rotateY(180deg);
+  outline: none;
+}
+
+.flip:hover > .back {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: var(--secondary);
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: 42% !important;
+  color: white !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 5px !important;
+  border-radius: 3px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #f4f4f4 !important;
+}
+
+.donationCall img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border: 14px solid var(--primary-clear);
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .logo {
+  min-width: 133px;
+  min-height: 33px;
+}
+
+.footer .social_icons {
+  min-width: 32px;
+  min-height: 32px;
+}
+
+/* Modal */
+
+.box-parent {
+  border: 14px solid var(--primary-clear);
+}
+
+.overlay-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.86);
+  display: flex;
+  align-items: center;
+  z-index: 50;
+}
+
+.overlay-modal img {
+  display: block;
+  max-width: 60%;
+  max-height: 80%;
+  margin: 60px auto;
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-modal > span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: #ffffff;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.overlay-arrows_left {
+  cursor: pointer;
+  display: flex;
+  background-color: rgba(109, 109, 109, 0.365);
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  left: 0;
+  z-index: 999;
+}
+
+.overlay-arrows_left svg {
+  width: 50px;
+  height: 50px;
+}
+
+.overlay-arrows_right svg {
+  width: 50px;
+  height: 50px;
+}
+
+.overlay-arrows_right {
+  cursor: pointer;
+  display: flex;
+  background-color: rgba(109, 109, 109, 0.365);
+  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  z-index: 999;
+}
+
+/* FORM */
+form label {
+  display: block;
+  font-weight: 500;
+  padding-block: 10px;
+}
+
+form input,
+form textarea {
+  border: 1px solid var(--primary-clear);
+  background-color: rgba(121, 174, 220, 0.1);
+  width: 100%;
+  padding: 1rem;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: 1px solid var(--primary) !important;
+}
+
+form span {
+  font-size: 12px;
+  padding: 3px;
+  color: #f36363;
+  display: none;
+}
+
+input:invalid[focused='true'],
+textarea:invalid[focused='true'] {
+  border: 2px solid #f36363;
+}
+
+input:invalid[focused='true'] ~ span,
+textarea:invalid[focused='true'] ~ span {
+  display: block;
+}
+
+/* HIDE INPUT TYPE NUMBER ARROWS  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+/* DONATE FORM */
+.label_wrapper {
+  width: 100%;
+}
+
+.label_wrapper input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
+.label_wrapper label {
+  background-color: var(--primary-clear);
+  font-size: 14px;
+  text-align: center;
+  width: 300px;
+  /* padding-inline: 3rem; */
+  height: auto;
+  padding-block: 1rem;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.label_wrapper input:checked + label {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .rectangle img {
+    width: 500px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -41%;
+  }
+
+  .spark img {
+    display: none;
+  }
+
+  .strips img {
+    display: none;
+  }
+
+  .wrapper-menu {
+    position: absolute;
+    top: 99%;
+    bottom: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    z-index: 10;
+    background: var(--secondary);
+    transition: right 0.3s ease-in;
+  }
+
+  .wrapper-menu.active {
+    right: 10%;
+  }
+
+  .ul_wrapper {
+    background: var(--secondary);
+    padding: 20px;
+  }
+
+  .box_image {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    min-height: 550px;
+  }
+
+  .box_image.visionBox {
+    min-height: 650px;
+  }
+
+  .box_image .lansiaImg1 {
+    box-sizing: content-box;
+    width: 300px;
+    height: 310px;
+  }
+
+  .box_image .lansiaImg2 {
+    width: 300px;
+    height: 310px;
+  }
+
+  .box_image .visionImage {
+    width: 100%;
+    max-width: 481.51px;
+    height: 496.24px;
+    object-fit: cover;
+  }
+
+  .box_image .vision {
+    width: 100%;
+    max-width: 300px;
+    height: 310px;
+  }
+
+  .donationCall {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .donationCall img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .overlay-modal img {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
